@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(p*o(2*etswk&_%z5^(zuc%+x*b&-zqyva^9!hm2ih&!7_0cj@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,7 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    
+    # my_apps
     'home.apps.HomeConfig',
+    'account.apps.AccountConfig',
+    'blog.apps.BlogConfig',
+    
+    # my_module
+    'django_cleanup.apps.CleanupConfig',
+    'django_social_share',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -63,6 +74,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                # add custom processors
+                'context_processors.context_processors.recent_post',
+                'context_processors.context_processors.categories',
             ],
         },
     },
@@ -116,10 +131,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# Static config
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Media config
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
 
 
 # Default primary key field type
