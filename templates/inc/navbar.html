@@ -27,9 +27,9 @@
               </div>
             {% else %}
               {% if request.user.image %}
-                <span><img src="{{ user.profile.image.url }}" width="40px" height="40px" style="border-radius: 100%;" alt="" /></span>
+                <span><img src="{{ user.profile.image.url }}" width="30px" height="30px" style="border-radius: 100%;" alt="" /></span>
               {% else %}
-                <span><img src="{% static 'account/images/icons/defaultUser.png' %}" width="40px" height="40px" style="border-radius: 100%;" alt="" /></span>
+                <span><img src="{% static 'account/images/icons/defaultUser.png' %}" width="25px" height="25px" style="border-radius: 100%;" alt="" /></span>
               {% endif %}
               <a class="nav-link" href="{% url 'account:logout' %}">logout | {{ request.user }}</a>
             {% endif %}

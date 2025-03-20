@@ -1,0 +1,8 @@
+{% for recent in objects %}
+<li>
+    <a href="post-details.html">
+      <h5>{{recent.title}}</h5>
+      <span>{{recent.created}}</span>
+    </a>
+</li>
+{% endfor %}

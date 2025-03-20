@@ -52,13 +52,11 @@
                         <div class="col-6">
                           <ul class="post-tags">
                             <li>
-                              <i class="fa fa-tags"></i>
-                            </li>
-                            <li>
-                              <a href="#">Best Templates</a>,
-                            </li>
-                            <li>
-                              <a href="#">TemplateMo</a>
+                              {% if is_like %}
+                              <a href="" onclick="like('{{post.slug}}', '{{post.id}}')"><i id="like" style="font-size: 20px;" class="fa fa-heart-o"></i><span id="count">{{post.like.all.count}}</span></a>
+                              {% else %}
+                              <a href="" onclick="like('{{post.slug}}', '{{post.id}}')"><i id="like" style="font-size: 20px;" class="fa fa-heart"></i><span id="count">{{post.like.all.count}}</span></a>
+                              {% endif %}
                             </li>
                           </ul>
                         </div>

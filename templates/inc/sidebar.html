@@ -1,3 +1,4 @@
+{% load filters %}
 <div class="col-lg-4">
     <div class="sidebar">
       <div class="row">
@@ -15,14 +16,7 @@
             </div>
             <div class="content">
               <ul>
-                {% for recent in recent_post %}
-                <li>
-                    <a href="post-details.html">
-                      <h5>{{recent.title}}</h5>
-                      <span>{{recent.created}}</span>
-                    </a>
-                </li>
-                {% endfor %}
+                {% show_res recent_post %}
               </ul>
             </div>
           </div>

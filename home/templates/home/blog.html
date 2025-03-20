@@ -68,15 +68,15 @@
               </div>
               {% endfor %}
               <div class="col-lg-12">
-                {% if posts.has_other_pages %}
+                {% if page_obj.has_other_pages %}
                   <ul class="page-numbers">
-                    {% if posts.has_previous %}
+                    {% if page_obj.has_previous %}
                       <li>
-                        <a href="?page={{ posts.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}"><i class="fa fa-angle-double-left"></i></a>
+                        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}"><i class="fa fa-angle-double-left"></i></a>
                       </li>
                     {% endif %}
-                      {% for item in posts.paginator.page_range %}
-                        {% if posts.number == item %}
+                      {% for item in page_obj.paginator.page_range %}
+                        {% if page_obj.number == item %}
                         <li class="active">
                           <a href="">{{item}}</a>
                         </li>
@@ -86,9 +86,9 @@
                         </li>
                         {% endif %}
                       {% endfor %}
-                    {% if posts.has_next %}
+                    {% if page_obj.has_next %}
                     <li>
-                      <a href="?page={{ posts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="fa fa-angle-double-right"></i></a>
+                      <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="fa fa-angle-double-right"></i></a>
                     </li>
                     {% endif %}
                   </ul>

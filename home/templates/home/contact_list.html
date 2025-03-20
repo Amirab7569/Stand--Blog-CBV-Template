@@ -2,23 +2,6 @@
 {% load static %}
 {% block content %}
 
-
-  <!-- Banner Starts Here -->
-  <div class="heading-page header-text">
-    <section class="page-heading">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-content">
-              <h4>contact us</h4>
-              <h2>let’s stay in touch!</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
   <!-- Banner Ends Here -->
 
   <section class="contact-us">
@@ -33,16 +16,11 @@
                     <h2>Send us a message</h2>
                   </div>
                   <div class="content">
-                    <form id="contact" action="" method="post">
-                      {% csrf_token %} 
-                      {{ form.as_p }}
-                        <div class="col-lg-12">
-                          <fieldset>
-                            <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </form>
+                    {% for msg in messages %}
+                        {{msg.subject}} --- {{msg.text|truncatewords:20}} --- {{msg.email}} <span><a href="{% url 'home:edit-message' msg.id %}" class="btn btn-primary">Edit</a> - <a href="{% url "home:delete-message" msg.id %}" class="btn btn-danger">Delete</a></span><br>
+                        <hr>
+                        
+                    {% endfor %}
                   </div>
                 </div>
               </div>
